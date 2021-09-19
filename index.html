@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+    <title>Population</title>
+</head>
+
+<center>
+    <h5>Hypothesis: Labor force participation declines are driven by men leaving the workforce.</h5>
+</center>
+<body>
+
+<div id="vis_time_series"></div>
+
+<table>
+    <thead>
+    <tr>
+        <th colspan="2">Side by side comparison</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><div id="vis_bar_2010"></div></td>
+        <td><div id="vis_bar_2020"></div></td>
+    </tr>
+    </tbody>
+</table>
+
+<div id="vis_bar"></div>
+
+<p style="font-size:8px">
+    Time series data from: <a href="https://fred.stlouisfed.org/series/CIVPART">https://fred.stlouisfed.org/series/CIVPART</a></p>
+<p style="font-size:8px">
+    Bar graph data from: <a href="https://www.bls.gov/emp/tables/civilian-labor-force-participation-rate.htm">https://www.bls.gov/emp/tables/civilian-labor-force-participation-rate.htm</a>
+</p>
+
+
+<p style="font-size:8px"><i>
+    The labor force participation rate represents the number of people in the labor force
+    as a percentage of the civilian noninstitutional population. In other words, the participation rate
+    is the percentage of the population that is either working or actively looking for work.
+    The labor force participation rate is calculated as:
+    (Labor Force ÷ Civilian Noninstitutional Population) x 100.</i></font></p>
+
+<script>
+    const spec_time_series = "labor_scatter.vl.json";
+    vegaEmbed("#vis_time_series", spec_time_series)
+        .then(result => console.log(result))
+        .catch(console.warn);
+
+    const spec_bar_2010 = "labor_bar_2010.vl.json";
+    vegaEmbed("#vis_bar_2010", spec_bar_2010)
+        .then(result => console.log(result))
+        .catch(console.warn);
+
+    const spec_bar_2020 = "labor_bar_2020.vl.json";
+    vegaEmbed("#vis_bar_2020", spec_bar_2020)
+        .then(result => console.log(result))
+        .catch(console.warn);
+
+    const spec_bar = "labor_bar.vl.json";
+    vegaEmbed("#vis_bar", spec_bar)
+        .then(result => console.log(result))
+        .catch(console.warn);
+
+</script>
+</body>
