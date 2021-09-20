@@ -1,0 +1,18 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Labor Participation Rate in the United States",
+  "description": "Labor market participation rates.",
+  "data": {"url": "data/Pop_Data.csv"},
+  "width": 600,
+  "height": 400,
+  "mark": {
+    "type": "line",
+    "point": false,
+    "opacity": 0.75
+  },
+  "encoding": {
+    "x": {"field": "Population","type": "quantitative","title": "U.S. Pop"},
+    "y": {"field": "Growth", "type": "quantitative", "title":"Growth Rate",
+      "scale": {"zero": false}}
+  }
+}

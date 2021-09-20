@@ -9,25 +9,11 @@
 </head>
 
 <center>
-    <h5>Hypothesis: Labor force participation declines are driven by men leaving the workforce.</h5>
+    <h5>Hypothesis: Population growth slows as per-capita income increases.</h5>
 </center>
 <body>
 
-<div id="vis_time_series"></div>
-
-<table>
-    <thead>
-    <tr>
-        <th colspan="2">Side by side comparison</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td><div id="vis_bar_2010"></div></td>
-        <td><div id="vis_bar_2020"></div></td>
-    </tr>
-    </tbody>
-</table>
+<div id="pop_line"></div>
 
 <div id="vis_bar"></div>
 
@@ -37,8 +23,16 @@
     Bar graph data from: <a href="https://www.bls.gov/emp/tables/civilian-labor-force-participation-rate.htm">https://www.bls.gov/emp/tables/civilian-labor-force-participation-rate.htm</a>
 </p>
 
+https://datacatalog.worldbank.org/search/dataset/0037655/Population-Estimates-and-Projections
+https://datacatalog.worldbank.org/search/dataset/0037712/World-Development-Indicators
 
 <p style="font-size:8px"><i>
+    Comments: gdp/capita, median income/capita, gini adjusted gdp/capita
+    None of these are very good.  Even median...growth at median doesn't imply
+    growth at bottom
+
+
+
     The labor force participation rate represents the number of people in the labor force
     as a percentage of the civilian noninstitutional population. In other words, the participation rate
     is the percentage of the population that is either working or actively looking for work.
@@ -46,8 +40,8 @@
     (Labor Force ÷ Civilian Noninstitutional Population) x 100.</i></font></p>
 
 <script>
-    const spec_time_series = "labor_scatter.vl.json";
-    vegaEmbed("#vis_time_series", spec_time_series)
+    const spec_time_series = "gdp_fert.vl.json";
+    vegaEmbed("#pop_line", spec_time_series)
         .then(result => console.log(result))
         .catch(console.warn);
 
