@@ -1,0 +1,55 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Income vs Fertility in the East Africa (Blue) and West Africa (Red), 1981 to 2019",
+  "description": "As wealth increases, fertility decreases.",
+  "data": {"url": "data/world_gdp_fert.csv"},
+  "width": 600,
+  "height": 260,
+  "layer": [
+    {
+  "mark": {"type": "point", "tooltip": {"content": "data"}, "color":"red",    "opacity": 0.75},
+  "encoding": {
+    "x": {
+      "field": "AFE-GNN",
+      "type": "quantitative",
+      "title": "GDP per capita (standardized_2010_US$) in East Africa (Blue) and West Africa (Red)",
+      "scale": {
+        "zero": false
+      }
+    },
+    "y": {
+      "field": "AFE-fert",
+      "type": "quantitative",
+      "title": "Fertility Rate, total (births per woman)",
+      "scale": {
+        "zero": false
+      }
+    }
+  }
+  },
+    {
+      "mark": {"type": "point", "tooltip": {"content": "data"},     "opacity": 0.75},
+      "encoding": {
+        "x": {
+          "field": "AFW-GNN",
+          "type": "quantitative",
+          "title": "GDP per capita (standardized_2010_US$) in the East Africa",
+          "scale": {
+            "zero": false
+          }
+        },
+        "y": {
+          "field": "AFW-fert",
+          "type": "quantitative",
+          "title": "Fertility Rate, total (births per woman)",
+          "scale": {
+            "zero": false
+          }
+        }
+      }
+
+    }
+
+
+  ]
+}
