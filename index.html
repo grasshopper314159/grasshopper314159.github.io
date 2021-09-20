@@ -5,29 +5,17 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
-    <title>Income vs Fertility in the United States, 1960 to 2019</title>
+    <title>DataViz-HW1-NateJ</title>
 
     <style>
         #centered { text-align: center;}
     </style>
 </head>
-
-<!--<center>-->
-    <h4 id="centered" h5>Hypothesis: Population growth will slow as countries develop economically.</h4>
-<!--</center>-->
 <body>
+<h4 id="centered" h5>Hypothesis: Population growth will slow as countries develop economically.</h4>
+<div id="gdp_fert_scatter"></div>
+<div id="tertiary_bar"></div>
 
-<div id="pop_line"></div>
-
-<div id="vis_bar"></div>
-
-<!--<p style="font-size:8px">-->
-<!--    Time series data from: <a href="https://fred.stlouisfed.org/series/CIVPART">https://fred.stlouisfed.org/series/CIVPART</a></p>-->
-<!--<p style="font-size:8px">-->
-<!--    Bar graph data from: <a href="https://www.bls.gov/emp/tables/civilian-labor-force-participation-rate.htm">https://www.bls.gov/emp/tables/civilian-labor-force-participation-rate.htm</a>-->
-<!--</p>-->
-
-<!--https://datacatalog.worldbank.org/search/dataset/0037655/Population-Estimates-and-Projections-->
 Source: World Bank Group (https://www.worldbank.org/en/who-we-are)
 https://datacatalog.worldbank.org/search/dataset/0037712/World-Development-Indicators
 
@@ -37,54 +25,16 @@ https://datacatalog.worldbank.org/search/dataset/0037712/World-Development-Indic
     growth at bottom
 
 
-
-    The labor force participation rate represents the number of people in the labor force
-    as a percentage of the civilian noninstitutional population. In other words, the participation rate
-    is the percentage of the population that is either working or actively looking for work.
-    The labor force participation rate is calculated as:
-    (Labor Force ÷ Civilian Noninstitutional Population) x 100.</i></font></p>
-<h1>Authors</h1>
-<ul id="authors"></ul>
-<script>
-
-    function createNode(element) {
-        return document.createElement(element);
-    }
-
-    function append(parent, el) {
-        return parent.appendChild(el);
-    }
-
-    const ul = document.getElementById('authors');
-    const url = 'https://api.worldbank.org/V2/country/all/indicator/NY.GDP.PCAP.PP.KD/?date=2006&format=json';
-
-    fetch(url)
-        .then((resp) => resp.json())
-        .then(function(data) {
-            console.log(data[1][0]['country']['value'])
-            console.log(data)
-
-            let authors = data.results;
-            return authors.map(function(author) {
-                let li = createNode('li');
-                let span = createNode('span');
-                span.innerHTML = `${author}`;
-                append(li, span);
-                append(ul, li);
-            })
-        })
-        .catch(function(error) {
-            console.log(error);
-        });
-
-</script>
 <script>
 
     const spec_time_series = "gdp_fert.vl.json";
-    vegaEmbed("#pop_line", spec_time_series)
+    vegaEmbed("#gdp_fert_scatter", spec_time_series)
         .then(result => console.log(result))
         .catch(console.warn);
 
-
+    const tertiary_series = "tertiary.vl.json";
+    vegaEmbed("#tertiary_bar", tertiary_series)
+        .then(result => console.log(result))
+        .catch(console.warn);
 </script>
 </body>

@@ -4,7 +4,7 @@
   "description": "As wealth increases, fertility decreases.",
   "data": {"url": "data/basic_gdp.csv"},
   "width": 600,
-  "height": 400,
+  "height": 160,
 
   "mark": {"type": "point", "tooltip": {"content": "data"},     "opacity": 0.75},
   "encoding": {

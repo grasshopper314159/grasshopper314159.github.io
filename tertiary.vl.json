@@ -1,0 +1,11 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Gross Rate of Females Participating in Tertiary Education, 1971 to 2018",
+  "description": "A simple bar chart with embedded data.",
+  "data": {"url": "data/tertiary2.csv"},
+  "mark": "bar",
+  "encoding": {
+    "x": {"field": "year", "type": "temporal", "title": "Year", "axis": {"labelAngle": 0}},
+    "y": {"field": "gross_rate", "type": "quantitative", "title": "Gross rate of female participation"}
+  }
+}
