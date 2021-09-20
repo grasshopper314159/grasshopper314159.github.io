@@ -1,17 +1,16 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Labor Participation Rate in the United States",
-  "description": "Labor market participation rates.",
+  "title": "Income vs Fertility in the United States, 1960 to 2019",
+  "description": "As wealth increases, fertility decreases.",
   "data": {"url": "data/basic_gdp.csv"},
   "width": 600,
   "height": 400,
-  "mark": {
-    "type": "point",
-    "opacity": 0.75
-  },
+
+  "mark": {"type": "point", "tooltip": {"content": "data"},     "opacity": 0.75},
   "encoding": {
-    "x": {"field": "gdp_per_capita_standardized_2010_US$","type": "quantitative","title": "GDP per Capita"},
-    "y": {"field": "fert", "type": "quantitative", "title":"Fertility Rate",
+    "x": {"field": "gdp_per_capita_standardized_2010_US$","type": "quantitative","title": "GDP per capita (standardized_2010_US$) in the United States"},
+    "y": {"field": "fert", "type": "quantitative", "title":"Fertility Rate, total (births per woman)",
       "scale": {"zero": false}}
   }
 }
+

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Labor Participation Rate in the United States",
+  "description": "Labor market participation rates.",
+  "data": {"url": "data/gini.csv"},
+  "width": 600,
+  "height": 400,
+  "mark": {
+    "type": "point",
+    "opacity": 0.75
+  },
+  "encoding": {
+    "x": {"field": "gdp_per_capita_standardized_2010_US$","type": "quantitative","title": "GDP per Capita"},
+    "y": {"field": "fert", "type": "quantitative", "title":"Fertility Rate",
+      "scale": {"zero": false}}
+  }
+}
