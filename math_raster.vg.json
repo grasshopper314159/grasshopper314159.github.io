@@ -1,0 +1,72 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "A contour plot of a mathematical function.",
+  "width": 400,
+  "autosize": "none",
+
+  "signals": [
+    {
+      "name": "grid",
+      "init": "data('math')[0]"
+    },
+    {
+      "name": "height",
+      "update": "round(grid.height * width / grid.width)"
+    },
+    {
+      "name": "smooth", "value": true,
+      "bind": {"input": "radio", "options": [true, false]}
+    },
+    {
+      "name": "levels", "value": 0.1,
+      "bind": {"input": "range", "min": 0.1, "max": 0.9, "step": 0.05}
+    }
+  ],
+
+  "data": [
+    {
+      "name": "math",
+      "url": "data/math2.json"
+    },
+    {
+      "name": "contours",
+      "source": "math",
+      "transform": [
+        {
+          "type": "isocontour",
+          "scale": {"expr": "width / datum.width"},
+          "smooth": {"signal": "smooth"},
+          "thresholds": {"signal": "sequence(-1, 1, levels)"}
+        }
+      ]
+    }
+  ],
+
+  "scales": [
+    {
+      "name": "color",
+      "type": "linear",
+      "domain": [-1, 1],
+      "range": {"scheme": "tealblues"}
+    }
+  ],
+  "marks": [
+    {
+      "type": "path",
+      "from": {"data": "contours"},
+      "encode": {
+        "enter": {
+          "stroke": {"value": "#000"},
+          "strokeWidth": {"value": 1},
+          "fill": {"scale": "color", "field": "contour.value"}
+        }
+      },
+      "transform": [
+        {
+          "type": "geopath",
+          "field": "datum.contour"
+        }
+      ]
+    }
+  ]
+}

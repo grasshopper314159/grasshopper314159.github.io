@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nate's Rasters</title>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@5"></script>
+</head>
+<body>
+<br><br>
+<table>
+    <th colspan="3"><h1>How does isocontour react to the thresholds parameter?</h1></th>
+    <tr colspan="3"> </tr>
+    <tr></tr>
+    <tr></tr>
+    <tr>
+        <td><div id="math_raster"></div></td>
+        <td><div id="math_raster2"></div></td>
+        <td><div id="math_raster3"></div></td>
+    </tr>
+    <tr>
+        <td><div id="math_raster4"></div></td>
+        <td><div id="math_raster5"></div></td>
+        <td><div id="math_raster6"></div></td>
+    </tr>
+<!--    <tr>-->
+<!--        <td><div id="math_raster7"></div></td>-->
+<!--        <td><div id="math_raster8"></div></td>-->
+<!--        <td><div id="math_raster9"></div></td>-->
+<!--    </tr>-->
+
+</table>
+
+<script>
+    // Register a discrete color scheme named "basic" that can then be used in Vega specs
+    vega.scheme('basic_johnson', ['#a35e5e', '#768b76', '#393965', '#c2c27c',
+        '#a788a7', '#87adad']);
+    const math_spec = "math_raster.vg.json";
+    const math_spec2 = "math_raster2.vg.json";
+    const math_spec3 = "math_raster3.vg.json";
+    const math_spec4 = "math_raster4.vg.json";
+    const math_spec5 = "math_raster5.vg.json";
+    const math_spec6 = "math_raster6.vg.json";
+    // const math_spec7 = "math_raster7.vg.json";
+    // const math_spec8 = "math_raster8.vg.json";
+    // const math_spec9 = "math_raster9.vg.json";
+
+    vegaEmbed("#math_raster", math_spec)
+        // result.view provides access to the Vega View API
+        .then(result => console.log(result))
+        .catch(console.warn);
+
+    vegaEmbed("#math_raster2", math_spec2)
+        // result.view provides access to the Vega View API
+        .then(result => console.log(result))
+        .catch(console.warn);
+    vegaEmbed("#math_raster3", math_spec3)
+        // result.view provides access to the Vega View API
+        .then(result => console.log(result))
+        .catch(console.warn);
+    vegaEmbed("#math_raster4", math_spec4)
+        // result.view provides access to the Vega View API
+        .then(result => console.log(result))
+        .catch(console.warn);
+    vegaEmbed("#math_raster5", math_spec5)
+        // result.view provides access to the Vega View API
+        .then(result => console.log(result))
+        .catch(console.warn);
+    vegaEmbed("#math_raster6", math_spec6)
+        // result.view provides access to the Vega View API
+        .then(result => console.log(result))
+        .catch(console.warn);
+    // vegaEmbed("#math_raster7", math_spec7)
+    //     // result.view provides access to the Vega View API
+    //     .then(result => console.log(result))
+    //     .catch(console.warn);
+    // vegaEmbed("#math_raster8", math_spec8)
+    //     // result.view provides access to the Vega View API
+    //     .then(result => console.log(result))
+    //     .catch(console.warn);
+    // vegaEmbed("#math_raster9", math_spec9)
+    //     // result.view provides access to the Vega View API
+    //     .then(result => console.log(result))
+    //     .catch(console.warn);
+
+</script>
+</body>
+</html>
