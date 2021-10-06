@@ -1,1 +1,85 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
+    <title>DataViz-HW1-NateJ</title>
+
+    <style>
+        #centered { text-align: center;}
+        h4 {
+                text-align: center;
+                color: red;
+            }
+        p {
+            font-size:16px;
+            font-family:sans-serif
+        }
+
+    </style>
+</head>
+<body>
+<h4>Hypothesis: Population growth will slow as countries develop economically.</h4>
+<table>
+<tr>
+<td>
+<div id="gdp_fert_scatter"></div></td>
+    <td>
+        <p>Comment on choice of GDP per capita:</p>
+        <p>
+            Gdp/capita, median income/capita, gini-adjusted gdp/capita,
+            none of these are very good to indicate prosperity, generally, since they don't take into account the distribution.  Even median income is flawed, since growth at median doesn't imply
+            growth at bottom
+        </p>
+        <p>While the hypothesis seems true up until 1975, the relationship doesn't hold after that.  Perhaps the use of GDP/Capita  may partially account for this uptick in fertility as income increased between 1976 and 2010.  While GDP per capita seems to have increased, perhaps it actually decreased due to concentration of wealth in the top percentiles.  It is just as likely though that there is a division where this relationship no longer holds, when fertility gets to be around the "replacement rate" (about 2 births per female).</p>
+    </td>
+</tr>
+    <tr>
+        <td>
+            <div id="intl_gdp_fert_scatter"></div></td>
+        </td>
+        <td>
+<p> The relationship is not so clear when looking at Africa possibly because the ranges of income and fertility rates are quite small. </p>
+<p>NB: I just wanted to experiment with using layers here, so that's why I made east and west two different colors.</p>
+        </td>
+    </tr>
+<tr>
+    <td>
+    <div id="tertiary_bar"></div></td>
+    <td>
+        <p> Another explanation is that women are more focused on career and work life during their child bearing years.  A proxy for this is the number of women attending higher education.  The bar chard below shows the increase in participation in the U.S.</p>
+        <p>Comment on gross rate of female participation:</p>
+        <p>  From the year 2009 onward, the rate is actually greater than 100%.
+            This is a complicated statistic.  How can the rate of participation be greater than 100%?</p>
+
+    </td>
+</tr>
+</table>
+
+Source for both figures: <a href="https://www.worldbank.org/en/who-we-are">World Bank Group</a>a> <br>
+<a href="https://datacatalog.worldbank.org/search/dataset/0037712/World-Development-Indicators">https://datacatalog.worldbank.org/search/dataset/0037712/World-Development-Indicators</a>
+
+
+
+
+
+<script>
+
+    const spec_time_series = "gdp_fert.vl.json";
+    vegaEmbed("#gdp_fert_scatter", spec_time_series)
+        .then(result => console.log(result))
+        .catch(console.warn);
+
+    const spec_time_series2 = "intl_gdp_fert.vl.json";
+    vegaEmbed("#intl_gdp_fert_scatter", spec_time_series2)
+        .then(result => console.log(result))
+        .catch(console.warn);
+
+    const tertiary_series = "tertiary.vl.json";
+    vegaEmbed("#tertiary_bar", tertiary_series)
+        .then(result => console.log(result))
+        .catch(console.warn);
+</script>
+</body>
