@@ -1,0 +1,138 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "A basic scatter plot example depicting automobile statistics.",
+  "width": 400,
+  "height": 400,
+  "padding": 5,
+
+  "signals": [
+    {
+      "name": "xaxis",
+      "value": "staseis",
+      "bind": {
+        "input": "select",
+        "options": ["Bronze",
+          "Colonies",
+          "Delian",
+          "Democracy",
+          "Elevation",
+          "Grid",
+          "Hellenicity",
+          "In/out",
+          "Koinon",
+          "Polisity",
+          "Proxenoi",
+          "Region#",
+          "Silver",
+          "Victors",
+          "Walls",
+          "area1",
+          "area2",
+          "polis#",
+          "prom1",
+          "prom2",
+          "prom3",
+          "staseis"
+        ]
+      }
+    },
+    {
+      "name": "yaxis",
+      "value": "staseis",
+      "bind": {
+        "input": "select",
+        "options": ["Bronze",
+          "Colonies",
+          "Delian L",
+          "Democracy",
+          "Elevation m",
+          "Grid",
+          "Hellenicity",
+          "In/out",
+          "Koinon",
+          "Polisity",
+          "Proxenoi",
+          "Region #",
+          "Silver",
+          "Victors",
+          "Walls",
+          "area 1",
+          "area 2",
+          "polis#",
+          "prom 1",
+          "prom 2",
+          "prom 3",
+          "staseis"
+        ]
+      }
+    }
+  ],
+
+  "data": [
+    {
+      "name": "source",
+      "url": "https://gist.githubusercontent.com/grasshopper314159/afede468c7aa94a59736c80574a71a5f/raw/ed1614548d3313eccde88e5f2df6fffa13f07545/polis2.json",
+      "transform": [{"type":"filter","expr":"datum['staseis']>0"}]
+    }
+  ],
+
+
+  "scales": [
+    {
+      "name": "x",
+      "type": "linear",
+      "round": true,
+      "nice": true,
+      "zero": true,
+      "domain": {"data": "source", "field": {"signal": "xaxis"}},
+      "range": "width"
+    },
+    {
+      "name": "y",
+      "type": "linear",
+      "round": true,
+      "nice": true,
+      "zero": true,
+      "domain": {"data": "source", "field": {"signal": "yaxis"}},
+      "range": "height"
+    }
+  ],
+
+  "axes": [
+    {
+      "scale": "x",
+      "grid": true,
+      "orient": "bottom",
+      "tickCount": 5,
+      "title": "Prom 1"
+    },
+    {
+      "scale": "y",
+      "grid": true,
+      "orient": "left",
+      "titlePadding": 5,
+      "title": "staseis"
+    }
+  ],
+
+  "marks": [
+    {
+      "name": "marks",
+      "type": "symbol",
+      "tooltip": {"content": "source"},
+      "from": {"data": "source"},
+      "encode": {
+        "update": {
+          "x": {"scale": "x", "field": {"signal":"xaxis"}},
+          "y": {"scale": "y", "field": {"signal":"yaxis"}},
+          "size": {"value": 10},
+          "shape": {"value": "circle"},
+          "strokeWidth": {"value": 2},
+          "opacity": {"value": 0.5},
+          "stroke": {"value": "#4682b4"},
+          "fill": {"value": "transparent"}
+        }
+      }
+    }
+  ]
+}

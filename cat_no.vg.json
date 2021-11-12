@@ -1,0 +1,121 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "A basic scatter plot example depicting automobile statistics.",
+  "width": 400,
+  "height": 400,
+  "padding": 5,
+
+  "signals": [
+    {
+      "name": "var1",
+      "value": "staseis_q",
+      "bind": {
+        "input": "select",
+        "options": ["Victors","area1","Proxenoi","Democracy", "area2_q", "staseis_q"]
+      }
+    },
+    {
+      "name": "var2",
+      "value": "Democracy",
+      "bind": {
+        "input": "select",
+        "options": ["Victors","area1","Proxenoi","Democracy", "area2_q", "staseis_q"]
+      }
+    },
+    {
+      "name": "var3",
+      "value": "Victors",
+      "bind": {
+        "input": "select",
+        "options": ["Victors","area1","Proxenoi","Democracy", "area2_q", "staseis_q"]
+      }
+    },
+    {
+      "name": "cutoff",
+      "value": "1",
+      "bind": {
+        "input": "select",
+        "options": ["0" , "1","2","3","4"]
+
+      }
+    }
+  ],
+
+  "data": [
+    {
+      "name": "source",
+      "url": "data/polis2.json"
+    },
+    {"name" : "points1"},
+    {
+      "name": "threshold1",
+      "url": "data/polis.json",
+      "format": {
+        "type": "json",
+        "property": "features"
+      },
+      "transform": [{"type":"formula","as":"threshold1","expr":"+datum.properties[var3] > +cutoff"}]
+    }
+  ],
+
+  "scales": [
+    {
+      "name": "x",
+      "type": "linear",
+      "round": true,
+      "nice": true,
+      "zero": true,
+      "domain": {"data": "threshold1", "field": {"signal": "var3"}},
+      "range": "width"
+    },
+    {
+      "name": "y",
+      "type": "linear",
+      "round": true,
+      "nice": true,
+      "zero": true,
+      "domain": {"data": "threshold1", "field": {"signal": "var3"}},
+      "range": "height"
+    }
+  ],
+
+  "axes": [
+    {
+      "scale": "x",
+      "grid": true,
+      "orient": "bottom",
+      "tickCount": 5,
+      "title": {"signal": "var3"}
+    },
+    {
+      "scale": "y",
+      "grid": true,
+      "orient": "left",
+      "titlePadding": 5,
+      "title": {"signal": "var3"}
+    }
+  ],
+
+
+
+  "marks": [
+    {
+      "name": "marks",
+      "type": "symbol",
+      "from": {"data": "threshold1"},
+      "encode": {
+        "update": {
+          "x": {"scale": "x", "field": {"signal":"var3"}},
+          "y": {"scale": "y", "field": {"signal":"var3"}},
+          "size": {"value": 10},
+          "shape": {"value": "circle"},
+          "strokeWidth": {"value": 2},
+          "opacity": {"value": 0.5},
+          "stroke": {"value": "#4682b4"},
+          "fill": {"value": "transparent"}
+        }
+      }
+    }
+  ]
+}
+

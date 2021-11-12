@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <title>Polis Plot</title>
+</head>
+<body>
+<center>
+    <h5>Factors leading to staseis</h5>
+</center>
+<div id="polis_geographic"></div>
+
+<!--<div class="canva"></div>-->
+<table>
+    <th colspan="3"><h1>Use the drop down menus to look for relationships among variables</h1><
+    <tr colspan="3"> </tr>
+    <tr></tr>
+    <tr></tr>
+    <tr>
+        <td><div id="math_raster"></div></td>
+        <td><div id="math_raster2"></div></td>
+        <td><div id="math_raster3"></div></td>
+    </tr>
+    <tr>
+        <td><div id="math_raster4"></div></td>
+        <td><div id="math_raster5">
+            <select name="aa" onchange="myout(this.value)">
+                <option value="">Please select</option>
+                <option value="Victors">Victors</option>
+                <option value="Proxenoi">Proxenoi</option>
+                <option value="Democracy">Democracy</option>
+                <option value="area1">area1</option>
+                <option value="area2_q">area2_q</option>
+                <option value="staseis_q">staseis_q</option>
+            </select>
+            <select name="aa" onchange="myout(this.value)">
+                <option value="">Please select</option>
+                <option value="Victors">Victors</option>
+                <option value="Proxenoi">Proxenoi</option>
+                <option value="Democracy">Democracy</option>
+                <option value="area1">area1</option>
+                <option value="area2_q">area2_q</option>
+                <option value="staseis_q">staseis_q</option>
+            </select>
+        </div></td>
+        <td><div id="math_raster6"></div></td>
+    </tr>
+    <!--    <tr>-->
+    <!--        <td><div id="math_raster7"></div></td>-->
+    <!--        <td><div id="math_raster8"></div></td>-->
+    <!--        <td><div id="math_raster9"></div></td>-->
+    <!--    </tr>-->
+
+</table>
+</body>
+<!--- Observe there are data collected from
+# https://github.com/simonepri/geo-maps
+# presented in this assignment. --->
+
+<script>
+    const spec_polis = "polis_dual.vg.json";
+    vegaEmbed("#polis_geographic", spec_polis)
+        .then(result => console.log(result))
+        .catch(console.warn);
+
+</script>
+
+<script>
+    const sp1 = "graphs2.vg.json";
+    vegaEmbed("#math_raster", sp1)
+        .then(result => console.log(result))
+        .catch(console.warn);
+</script>
+<!--<script src="chi.js"></script>-->
+<script>
+    const sp2 = "cat_no.vg.json";
+    vegaEmbed("#math_raster4", sp2)
+        .then(result => console.log(result))
+        .catch(console.warn);
+</script>
+</html>
