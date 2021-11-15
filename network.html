@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <title>Network Graph</title>
+</head>
+<body>
+<center>
+    <h1>Who asks whom for advice.</h1><hr>
+    21 Office workers were surveyed as to their perception of who gets advice from whom.  They also noted who is friends with whom.<br>
+    <h5>KRACKHARDT OFFICE CSS, UCINET IV Version 1.0 DATASETS, <a href="http://vlado.fmf.uni-lj.si/pub/networks/data/UciNet/UciData.htm#krackoff">http://vlado.fmf.uni-lj.si/pub/networks/data/UciNet/UciData.htm#krackoff</a></h5>
+
+
+</center>
+
+
+<!--<div class="canva"></div>-->
+<table>
+    <th colspan="1"><h1> Actor1's Perception of Friendship Relations </h1></th>
+    <tr colspan="2"></tr>
+    <tr>
+        <td><div id="math_raster"></div></td>
+        <td><div style="padding-bottom: 400px;" id="math_raster2"></div></td>
+    </tr>
+    <tr>
+        <td colspan="2"><h1> Actor1's Perception of Advice Sharing </h1></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><div id="math_raster3"></div></td>
+        <td><div id="math_raster4"></div></td>
+
+    </tr>
+<!--    <td><div id="math_raster5">-->
+<!--        &lt;!&ndash;            <select name="aa" onchange="myout(this.value)">-->
+<!--                        <option value="">Please select</option>-->
+<!--                        <option value="Victors">Victors</option>-->
+<!--                        <option value="Proxenoi">Proxenoi</option>-->
+<!--                        <option value="Democracy">Democracy</option>-->
+<!--                        <option value="area1">area1</option>-->
+<!--                        <option value="area2_q">area2_q</option>-->
+<!--                        <option value="staseis_q">staseis_q</option>-->
+<!--                    </select>-->
+<!--                    <select name="aa" onchange="myout(this.value)">-->
+<!--                        <option value="">Please select</option>-->
+<!--                        <option value="Victors">Victors</option>-->
+<!--                        <option value="Proxenoi">Proxenoi</option>-->
+<!--                        <option value="Democracy">Democracy</option>-->
+<!--                        <option value="area1">area1</option>-->
+<!--                        <option value="area2_q">area2_q</option>-->
+<!--                        <option value="staseis_q">staseis_q</option>-->
+<!--                    </select>&ndash;&gt;-->
+<!--    </div></td>-->
+<!--    <td><div id="math_raster6"></div></td>-->
+    <!--    <tr>-->
+    <!--        <td><div id="math_raster7"></div></td>-->
+    <!--        <td><div id="math_raster8"></div></td>-->
+    <!--        <td><div id="math_raster9"></div></td>-->
+    <!--    </tr>-->
+
+</table>
+</body>
+<!--- Observe there are data collected from
+# https://github.com/simonepri/geo-maps
+# presented in this assignment. --->
+
+
+<!--<script>-->
+<!--    const sp1 = "graphs2.vg.json";-->
+<!--    vegaEmbed("#math_raster", sp1)-->
+<!--        .then(result => console.log(result))-->
+<!--        .catch(console.warn);-->
+<!--</script>-->
+<!--<script src="chi.js"></script>-->
+<!--<script>-->
+<!--    const sp2 = "cat_no.vg.json";-->
+<!--    vegaEmbed("#math_raster4", sp2)-->
+<!--        .then(result => console.log(result))-->
+<!--        .catch(console.warn);-->
+<!--</script>-->
+<script>
+    const sp4 = "force.vg.json";
+    vegaEmbed("#math_raster", sp4)
+        .then(result => console.log(result))
+        .catch(console.warn);
+</script>
+<script>
+    const sp3 = "matrix.vg.json";
+    vegaEmbed("#math_raster2", sp3)
+        .then(result => console.log(result))
+        .catch(console.warn);
+</script>
+<script>
+    const sp5 = "forcead0.vg.json";
+    vegaEmbed("#math_raster3", sp5)
+        .then(result => console.log(result))
+        .catch(console.warn);
+</script>
+<script>
+    const sp6 = "matrixad0.vg.json";
+    vegaEmbed("#math_raster4", sp6)
+        .then(result => console.log(result))
+        .catch(console.warn);
+</script>
+</html>
+<!--David Krackhardt collected cognitive social structure data from 21 management personnel
+in a high-tech, machine manufacturing firm to assess the effects of a recent management
+intervention program. The relation queried was "Who does X go to for advice and help with work?"
+ (KRACKAD) and "Who is a friend of X?" (KRACKFR).
+  Each person indicated not only his or her own advice and friendship relationships,
+  but also the relations he or she perceived among all other managers, generating a full
+  21 × 21 matrix of adjacency ratings from each person in the group.-->
+
