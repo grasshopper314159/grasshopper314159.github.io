@@ -59,12 +59,12 @@
   "data": [
     {
       "name": "node-data",
-      "url": "https://gist.githubusercontent.com/grasshopper314159/ff70641a407b883507a5e390a321ce52/raw/9aafe0b260c233bb1ccc4a70c0729387b637c248/person1fr.json",
+      "url": "https://gist.githubusercontent.com/grasshopper314159/5d233262c10c5b1fcec5b14efba4ae25/raw/dcf6ff1d8dabcbfa476a53fb8fa969d40ed073ca/consensus.json",
       "format": {"type": "json", "property": "nodes"}
     },
     {
       "name": "link-data",
-      "url": "https://gist.githubusercontent.com/grasshopper314159/ff70641a407b883507a5e390a321ce52/raw/9aafe0b260c233bb1ccc4a70c0729387b637c248/person1fr.json",
+      "url": "https://gist.githubusercontent.com/grasshopper314159/5d233262c10c5b1fcec5b14efba4ae25/raw/dcf6ff1d8dabcbfa476a53fb8fa969d40ed073ca/consensus.json",
       "format": {"type": "json", "property": "links"}
     }
   ],

@@ -24,7 +24,7 @@
     <tr colspan="2"></tr>
     <tr>
         <td><div id="math_raster"></div></td>
-        <td><div style="padding-bottom: 400px;" id="math_raster2"></div></td>
+        <td><div style="padding-bottom: 40px;" id="math_raster2"></div></td>
     </tr>
     <tr>
         <td colspan="2"><h1> Actor1's Perception of Advice Sharing </h1></td>
@@ -33,6 +33,15 @@
     <tr>
         <td><div id="math_raster3"></div></td>
         <td><div id="math_raster4"></div></td>
+
+    </tr>
+    <tr>
+        <td colspan="2"><h1> Consensus Perception of Advice Sharing </h1></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><div id="math_raster5"></div></td>
+        <td><div id="math_raster6"></div></td>
 
     </tr>
 <!--    <td><div id="math_raster5">-->
@@ -103,6 +112,18 @@
 <script>
     const sp6 = "matrixad0.vg.json";
     vegaEmbed("#math_raster4", sp6)
+        .then(result => console.log(result))
+        .catch(console.warn);
+</script>
+<script>
+    const sp7 = "consensus_force.vg.json";
+    vegaEmbed("#math_raster5", sp7)
+        .then(result => console.log(result))
+        .catch(console.warn);
+</script>
+<script>
+    const sp8 = "consensus_matrix.vg.json";
+    vegaEmbed("#math_raster6", sp8)
         .then(result => console.log(result))
         .catch(console.warn);
 </script>

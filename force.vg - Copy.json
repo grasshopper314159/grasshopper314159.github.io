@@ -59,12 +59,12 @@
   "data": [
     {
       "name": "node-data",
-      "url": "https://gist.githubusercontent.com/grasshopper314159/ff70641a407b883507a5e390a321ce52/raw/9aafe0b260c233bb1ccc4a70c0729387b637c248/person1fr.json",
+      "url": "https://gist.githubusercontent.com/grasshopper314159/aadbdcab74628bb45d43892b6769780d/raw/45eadc574482b09ebb022408cefa5884b76aacc4/network3.json",
       "format": {"type": "json", "property": "nodes"}
     },
     {
       "name": "link-data",
-      "url": "https://gist.githubusercontent.com/grasshopper314159/ff70641a407b883507a5e390a321ce52/raw/9aafe0b260c233bb1ccc4a70c0729387b637c248/person1fr.json",
+      "url": "https://gist.githubusercontent.com/grasshopper314159/aadbdcab74628bb45d43892b6769780d/raw/45eadc574482b09ebb022408cefa5884b76aacc4/network3.json",
       "format": {"type": "json", "property": "links"}
     }
   ],
@@ -95,7 +95,8 @@
           "fill": {"scale": "color", "field": "group"},
           "stroke": {"value": "white"},
           "tooltip": {"signal": "{' ': datum.name}"}
-        },
+
+    },
         "update": {
           "size": {"signal": "2 * nodeRadius * nodeRadius"},
           "cursor": {"value": "pointer"}
